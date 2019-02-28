@@ -1,11 +1,15 @@
 var exec = require("cordova/exec");
 var PLUGIN_NAME = "FirebaseAnalytics";
 
-const execPromise = (cls, action, arg) => new Promise((resolve, reject) => {
-    exec(resolve, reject, cls, action, arg)
-})
+const execPromise = function(cls, action, arg) {
+  return new Promise(function(resolve, reject) {
+    exec(resolve, reject, cls, action, arg);
+  });
+};
 
-const execPlugin = (action, arg) => execPromise(PLUGIN_NAME, action, arg)
+const execPlugin = function(action, arg) {
+  execPromise(PLUGIN_NAME, action, arg);
+};
 
 // TODO: deduplicate function names, refactor array conversions
 module.exports = {
