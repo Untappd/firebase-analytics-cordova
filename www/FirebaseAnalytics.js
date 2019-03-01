@@ -1,5 +1,5 @@
-var exec = require("cordova/exec");
-var PLUGIN_NAME = "FirebaseAnalytics";
+var exec = require('cordova/exec');
+var PLUGIN_NAME = 'FirebaseAnalytics';
 
 const execPromise = function(cls, action, arg) {
   return new Promise(function(resolve, reject) {
@@ -13,11 +13,23 @@ const execPlugin = function(action, arg) {
 
 // TODO: deduplicate function names, refactor array conversions
 module.exports = {
-    // TODO: validate logEvent parameters
-    logEvent: (name, params) => execPlugin("logEvent", [name, params || {}]),
-    setUserId: userId => execPlugin("setUserId", [userId]),
-    setUserProperty: (name, value) => execPlugin("setUserProperty", [name, value]),
-    resetAnalyticsData: () => execPlugin("resetAnalyticsData", []),
-    setEnabled: enabled => execPlugin("setEnabled", [enabled]),
-    setCurrentScreen: name => execPlugin("setCurrentScreen", [name]),
+  // TODO: validate logEvent parameters
+  logEvent: function(name, params) {
+    execPlugin('logEvent', [name, params || {}]);
+  },
+  setUserId: function(userId) {
+    execPlugin('setUserId', [userId]);
+  },
+  setUserProperty: function(name, value) {
+    execPlugin('setUserProperty', [name, value]);
+  },
+  resetAnalyticsData: function() {
+    execPlugin('resetAnalyticsData', []);
+  },
+  setEnabled: function(enabled) {
+    execPlugin('setEnabled', [enabled]);
+  },
+  setCurrentScreen: function(name) {
+    execPlugin('setCurrentScreen', [name]);
+  }
 };
